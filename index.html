@@ -36,6 +36,7 @@
 
   <script>
 	  var my_video_player;
+	  var theScript;
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '601078690059003',
@@ -70,6 +71,19 @@
 	function restartVideo() {
 		my_video_player.seek(0);
 		my_video_player.play();
+	}
+	
+	function processScript() {
+		theScript = $('textarea#script-textarea').val();
+		var mySplitResult;
+		console.log(theScript);
+		// Use the string.split function to split the string
+		mySplitResult = theScript.split('\n\n');
+for(i = 0; i < mySplitResult.length; i++)
+  {
+    $("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + mySplitResult[i] + "</div></div>");
+  }
+
 	}
     
     
@@ -114,18 +128,22 @@
 	        <!-- Load Facebook SDK for JavaScript -->
 
   <!-- Your embedded video player code -->
-  <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+  	<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+  	<div id = "separatedscript">
+  	</div>
       </div>
 
       	<div id = "PlayButton"> <button type="button" class="btn btn-success" onclick = "playVideo()">Play</button></div>
 	  	<div id = "PauseButton"> <button type="button" class="btn btn-danger" onclick = "pauseVideo()">Pause</button></div>
 	  	<div id = "Restart"> <button type="button" class="btn btn-primary" onclick = "restartVideo()">Restart</button></div>
+	  	<div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
+
 	  	<div id = "seconds"></div><div id = "minutes"></div>
       <div class = "col-md-6">
 	      <h2>Script</h2>
 	  	<div class="form-horizontal">
 	  		<div class="form-group">
-            	<textarea class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
+            	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
         	</div>
     	</div>
       </div>
