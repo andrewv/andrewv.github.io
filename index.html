@@ -54,7 +54,13 @@
     };
     
     function playVideo() {
-	 	my_video_player.play();  
+	 	my_video_player.play();
+	 	var sec = 0;
+	 		function pad ( val ) { return val > 9 ? val : "0" + val; }
+	 		setInterval( function(){
+	 		$("#seconds").html(pad(++sec%60));
+	 		$("#minutes").html(pad(parseInt(sec/60,10)));
+	}, 1000); 
 	}
 	
 	function pauseVideo() {
@@ -114,7 +120,7 @@
       	<div id = "PlayButton"> <button type="button" class="btn btn-success" onclick = "playVideo()">Play</button></div>
 	  	<div id = "PauseButton"> <button type="button" class="btn btn-danger" onclick = "pauseVideo()">Pause</button></div>
 	  	<div id = "Restart"> <button type="button" class="btn btn-primary" onclick = "restartVideo()">Restart</button></div>
-
+	  	<div id = "seconds"></div><div id = "minutes"></div>
       <div class = "col-md-6">
 	      <h2>Script</h2>
 	  	<div class="form-horizontal">
