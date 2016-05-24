@@ -54,7 +54,13 @@
     function playVideo()
     {
 	    alert("I am an alert box!");
-	  my_video_player.play();
+	  var facebookVideo;
+      FB.Event.subscribe('xfbml.ready', function(msg) {
+        if (msg.type === 'video') {
+          facebookVideo = msg.instance;
+        }
+        facebookVideo.play();
+      });
 	}
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
