@@ -33,12 +33,7 @@
 
   <body>
 	    <div id="fb-root"></div>
-	    <script>
-	    $('#PlayButton').on('click', function (e) {
 
-     my_video_player.play();
-
-})</script>
   <script>
     window.fbAsyncInit = function() {
       FB.init({
@@ -100,7 +95,7 @@
   <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tennews/videos/1073926082677698/"><a href="https://www.facebook.com/tennews/videos/1073926082677698/">Excitement builds for Independence Day sequel</a><p>It&#039;s not even finished yet, but that didn’t stop Jeff Goldblum from dishing on the new #IndependenceDay instalment. #TenNews</p>Posted by <a href="https://www.facebook.com/tennews/">Ten News</a> on Monday, May 23, 2016</blockquote></div></div>
       </div>
 
-      	<div id = "PlayButton"> <button type="button" class="btn btn-success">Play</button></div>
+      	<div id = "PlayButton"> <button type="button" class="btn btn-success" onclick = "my_video_player.play();">Play</button></div>
 
       <div class = "col-md-6">
 	      <h2>Script</h2>
