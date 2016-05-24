@@ -57,8 +57,13 @@
 	 	my_video_player.play();  
 	}
 	
-	function stopVideo() {
-	 	my_video_player.stop();  
+	function pauseVideo() {
+	 	my_video_player.pause();  
+	}
+	
+	function resetVideo() {
+		my_video_player.seek(0);
+		my_video_player.play();
 	}
     
     
@@ -107,7 +112,9 @@
       </div>
 
       	<div id = "PlayButton"> <button type="button" class="btn btn-success" onclick = "playVideo()">Play</button></div>
-	  	<div id = "StopButton"> <button type="button" class="btn btn-danger" onclick = "stopVideo()">Stop</button></div>
+	  	<div id = "PauseButton"> <button type="button" class="btn btn-danger" onclick = "pauseVideo()">Pause</button></div>
+	  	<div id = "Restart"> <button type="button" class="btn btn-primary" onclick = "restartVideo()">Restart</button></div>
+
       <div class = "col-md-6">
 	      <h2>Script</h2>
 	  	<div class="form-horizontal">
