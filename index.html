@@ -49,19 +49,13 @@
           my_video_player = msg.instance;
         }
       });
+      function playVideo()
+    {
+	 my_video_player.play();  
+	}
     };
     
-    function playVideo()
-    {
-	    alert("I am an alert box!");
-	  var facebookVideo;
-      FB.Event.subscribe('xfbml.ready', function(msg) {
-        if (msg.type === 'video') {
-          facebookVideo = msg.instance;
-        }
-        facebookVideo.play();
-      });
-	}
+    
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
