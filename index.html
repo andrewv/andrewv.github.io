@@ -79,10 +79,10 @@
 		console.log(theScript);
 		// Use the string.split function to split the string
 		mySplitResult = theScript.split('\n\n');
-for(i = 0; i < mySplitResult.length; i++)
-  {
-    $("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + mySplitResult[i] + "</div></div>");
-  }
+			for(i = 0; i < mySplitResult.length; i++)
+			{
+			$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + mySplitResult[i].replace('\n', '<br>') + "</div></div>");
+  			}
 
 	}
     
@@ -129,6 +129,7 @@ for(i = 0; i < mySplitResult.length; i++)
 
   <!-- Your embedded video player code -->
   	<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+  	<h2>Captions</h2>
   	<div id = "separatedscript">
   	</div>
       </div>
