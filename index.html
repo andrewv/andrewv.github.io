@@ -36,8 +36,8 @@
 
   <script>
 	  var my_video_player;
-	  var theScript;
-    window.fbAsyncInit = function() {
+	  var rawScript;
+	  window.fbAsyncInit = function() {
       FB.init({
         appId      : '601078690059003',
         xfbml      : true,
@@ -74,14 +74,37 @@
 	}
 	
 	function processScript() {
-		theScript = $('textarea#script-textarea').val();
-		var mySplitResult;
-		console.log(theScript);
+		rawScript = $('textarea#script-textarea').val();
+		console.log(rawScript);
 		// Use the string.split function to split the string
-		mySplitResult = theScript.split('\n\n');
-			for(i = 0; i < mySplitResult.length; i++)
+		
+		var sentences = rawScript.split('.');
+		console.log(sentences);
+		
+		//Process each sentence
+		for(i = 0; i < sentences.length; i++)
 			{
-			$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + mySplitResult[i].replace('\n', '<br>') + "</div></div>");
+			//Divide sentence by 40 characters and round up. This is the max length of a caption.
+				var numberOfCaptionLines = Math.ceil(sentences[i].length / 40)
+			
+			//Find the ideal length of each caption line
+				var idealCaptionLineLength = Math.round(sentences[i].length)
+			
+			//Create an array of words in each sentence
+
+				var words = sentences[i].split(' ');
+				console.log(words)
+				
+				//create caption lines
+				var captionLine = ""
+				for(j = 0, j < words.length, j++) {
+					if (captionLine.length < idealCaptionLineLength + words[j].length) {
+						captionLine = captionLine + " " + words[j]
+					} else {
+						$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
+					}
+				}
+				
   			}
 
 	}
