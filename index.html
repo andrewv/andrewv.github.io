@@ -106,14 +106,27 @@
 					for(j = 0; j < words.length; j++) {
 						if (captionLine.length  + words[j].length < idealCaptionLineLength) {
 							captionLine = captionLine + " " + words[j]
+						} else {
+							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
+							captionLine = "<br>" + words[j]
+							
+						}
+						if (j === (words.length - 1)) {
+							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
+								captionLine = ""
+						}
+						}
+							/*
 							if (j === (words.length - 1)) {
 								$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
+								captionLine = ""
 							}
 						} else {		
 							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
 							captionLine = ""
-						}
-					}
+							*/
+						
+					
 					
 				
   			}
