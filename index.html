@@ -86,6 +86,7 @@
 	function nextCaption() {
 		var currentTime = Math.floor(my_video_player.getCurrentPosition());
 		var currentTimeInSeconds = Math.floor(currentTime);
+		console.log(currentTime);
 		var h = Math.floor(currentTime / 3600);
 		var m = Math.floor(currentTime % 3600 / 60);
 		var s = Math.floor(currentTime % 3600 % 60);
