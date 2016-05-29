@@ -108,6 +108,16 @@
 		
 
 	}
+	
+	function makeCaptionsFile() {
+		var fileContents = $('textarea#script-textarea').val();
+		var fileName = "test.srt"
+		var link = document.createElement('a');
+	    link.download = fileName;
+	    link.href = 'data:,' + fileContents;
+	    link.click();
+    
+	}
 
 	
 	function processScript() {
@@ -242,12 +252,14 @@
 	  	<div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
 	  	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div>
 	  	<div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
+	  	<div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div>
 	  	<div id = "seconds"></div><div id = "minutes"></div>
       <div class = "col-md-6">
 	      <h2>Script</h2>
 	  	<div class="form-horizontal">
 	  		<div class="form-group">
             	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
+            	<textarea id = "captionfile-textarea" class="form-control" rows="40" placeholder="" required></textarea>
         	</div>
     	</div>
       </div>
