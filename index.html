@@ -72,27 +72,15 @@
 		my_video_player.seek(0);
 		my_video_player.play();
 	}
-	
-	function wordwrap( str, width, brk, cut ) {
- 
-    brk = brk || 'n';
-    width = width || 75;
-    cut = cut || false;
- 
-    if (!str) { return str; }
- 
-    var regex = '.{1,' +width+ '}(\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\S+?(\s|$)');
- 
-    return str.match( RegExp(regex, 'g') ).join( brk );
- 
-}
+
 	
 	function processScript() {
+		$( "#separatedscript" ).empty();
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
 		// Use the string.split function to split the string
 		
-		var sentences = rawScript.split('.');
+		var sentences = rawScript.match( /[^\.!\?]+[\.!\?]+/g );
 		console.log(sentences);
 		
 		var idealCaptionLineLength = 74
@@ -112,27 +100,79 @@
 				
 				
 				
-				//create caption lines
+				//create caption lines - First Pass
 				var captionLine = ""
 					for(j = 0; j < words.length; j++) {
-						if (j === words.length - 1) {
+						if (j === words.length - 1) { //checks if it is the last line
 							captionLine = captionLine + " " + words[j]
 							sentences[i][0].push(captionLine)
 							captionLine = ""
-							console.log(sentences[i][0])
+							
 						} else {
 							if (captionLine.length  + words[j].length < idealCaptionLineLength) {
 								captionLine = captionLine + " " + words[j]
 							} else {
 								sentences[i][0].push(captionLine)
 								captionLine = words[j]
-								console.log(sentences[i][0])
+								
 								
 							} 
+						}				
+						
+					}
+					
+					for (k = 0; k < sentences[i][0].length; k++) {
+						var newCaption = ""
+						if (sentences[i][0][k].length > 42) {
+							var wordsInCaption = sentences[i][0][k].split(' ');
+							
+							var newCaptionLine = ""
+							for (l = 0; l < wordsInCaption.length; l++) {
+								if (newCaptionLine.length + wordsInCaption[l].length < (sentences[i][0][k].length / 2)) {
+									newCaption = newCaption + " " + wordsInCaption[l]
+									newCaptionLine = newCaptionLine + " " + wordsInCaption[l]
+									console.log("New Caption - " + newCaption + "// New Caption Line - " + newCaptionLine + "this is half" + (sentences[i][0][k].length / 2));
+								} else {
+									newCaption = newCaption + "<br>" + wordsInCaption[l]
+									newCaptionLine = ""
+								}
+							}
+							} else {
+								newCaption = sentences[i][0][k]
+							}
+							$('#separatedscript').append("<div class='panel panel-default text-center'><div class='panel-body'>" + newCaption + "</div></div>");
 						}
 						
 						
-						}				
+					
+					
+
+/*
+					for (k = 0; k < sentences[i][0].length; k++) {
+						var lengthOfCaptionLine = sentences[i][0][k].length
+						if (lengthOfCaptionLine < 42) {
+							//process caption Line
+						} else {
+							var idealCaptionLineLength = lengthOfCaptionLine / 2
+							var wordsInCaption = sentences[i][0][k].split(' ');
+							var captionLine = ""
+							console.log("SENTENCE" + sentences[i][0][k]);
+							for (l = 0; l < wordsInCaption.length; l++) {
+								if (captionLine.length + wordsInCaption[l].length < idealCaptionLineLength) {
+									captionLine = captionLine + " " + wordsInCaption[l]
+								} else {
+									console.log("Caption " + captionLine);
+									captionLine = ""
+								}
+							}
+						}
+					}
+					*/
+					/*
+					var lastCaptionOfSentence = sentences[i][0].length - 1
+					console.log(lastCaptionOfSentence)
+					console.log(sentences[i][0][lastCaptionOfSentence])		
+					*/	
 					
 				
   			}
