@@ -65,7 +65,8 @@
 	}
 	
 	function pauseVideo() {
-	 	my_video_player.pause();  
+	 	
+	 	console.log(my_video_player.getCurrentPosition());
 	}
 	
 	function restartVideo() {
@@ -75,13 +76,14 @@
 
 	
 	function processScript() {
+		var captions = []
 		$( "#separatedscript" ).empty();
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
 		// Use the string.split function to split the string
 		
 		var sentences = rawScript.match( /[^\.!\?]+[\.!\?]+/g );
-		console.log(sentences);
+		
 		
 		var idealCaptionLineLength = 74
 		//Process each sentence
@@ -122,6 +124,7 @@
 					}
 					
 					for (k = 0; k < sentences[i][0].length; k++) {
+						
 						var newCaption = ""
 						if (sentences[i][0][k].length > 42) {
 							var wordsInCaption = sentences[i][0][k].split(' ');
@@ -131,7 +134,6 @@
 								if (newCaptionLine.length + wordsInCaption[l].length < (sentences[i][0][k].length / 2)) {
 									newCaption = newCaption + " " + wordsInCaption[l]
 									newCaptionLine = newCaptionLine + " " + wordsInCaption[l]
-									console.log("New Caption - " + newCaption + "// New Caption Line - " + newCaptionLine + "this is half" + (sentences[i][0][k].length / 2));
 								} else {
 									newCaption = newCaption + "<br>" + wordsInCaption[l]
 									newCaptionLine = ""
@@ -140,43 +142,15 @@
 							} else {
 								newCaption = sentences[i][0][k]
 							}
+							captions.push(newCaption)
 							$('#separatedscript').append("<div class='panel panel-default text-center'><div class='panel-body'>" + newCaption + "</div></div>");
 						}
 						
 						
 					
-					
-
-/*
-					for (k = 0; k < sentences[i][0].length; k++) {
-						var lengthOfCaptionLine = sentences[i][0][k].length
-						if (lengthOfCaptionLine < 42) {
-							//process caption Line
-						} else {
-							var idealCaptionLineLength = lengthOfCaptionLine / 2
-							var wordsInCaption = sentences[i][0][k].split(' ');
-							var captionLine = ""
-							console.log("SENTENCE" + sentences[i][0][k]);
-							for (l = 0; l < wordsInCaption.length; l++) {
-								if (captionLine.length + wordsInCaption[l].length < idealCaptionLineLength) {
-									captionLine = captionLine + " " + wordsInCaption[l]
-								} else {
-									console.log("Caption " + captionLine);
-									captionLine = ""
-								}
-							}
-						}
-					}
-					*/
-					/*
-					var lastCaptionOfSentence = sentences[i][0].length - 1
-					console.log(lastCaptionOfSentence)
-					console.log(sentences[i][0][lastCaptionOfSentence])		
-					*/	
-					
 				
   			}
-
+  			console.log(captions)
 	}
     
     
