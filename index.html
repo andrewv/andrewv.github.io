@@ -84,12 +84,12 @@
 	}
 	
 	function nextCaption() {
-		var currentTime = Math.floor(my_video_player.getCurrentPosition());
+		var currentTime = my_video_player.getCurrentPosition();
 		var currentTimeInSeconds = Math.floor(currentTime);
 		console.log(currentTime);
-		var h = Math.floor(currentTime / 3600);
-		var m = Math.floor(currentTime % 3600 / 60);
-		var s = Math.floor(currentTime % 3600 % 60);
+		var h = Math.floor(currentTimeInSeconds / 3600);
+		var m = Math.floor(currentTimeInSeconds % 3600 / 60);
+		var s = Math.floor(currentTimeInSeconds % 3600 % 60);
 		var mm = currentTime - currentTimeInSeconds
 		var convertedTime = ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + ',' + mm);
 		startTimes[captionCounter] = convertedTime
