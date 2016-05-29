@@ -37,6 +37,10 @@
   <script>
 	  var my_video_player;
 	  var rawScript;
+	  var captions = [];
+	  var captionCounter = 0
+	  var startTimes = [];
+	  var endTimes = [];
 	  window.fbAsyncInit = function() {
       FB.init({
         appId      : '601078690059003',
@@ -65,18 +69,29 @@
 	}
 	
 	function pauseVideo() {
-	 	
-	 	console.log(my_video_player.getCurrentPosition());
+	 	my_video_player.pause()
 	}
 	
 	function restartVideo() {
 		my_video_player.seek(0);
 		my_video_player.play();
 	}
+	
+	function startCaptioning() {
+		var captionCounter = 1
+		//my_video_player.play();
+		startTimes[0] = 0
+	}
+	
+	function nextCaption() {
+		startTimes[captionCounter] = my_video_player.getCurrentPosition()
+		endTimes[captionCounter - 1] = my_video_player.getCurrentPosition() - 0.001
+		console.log(startTimes[captionCounter]);
+	}
 
 	
 	function processScript() {
-		var captions = []
+		
 		$( "#separatedscript" ).empty();
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
@@ -205,7 +220,8 @@
 	  	<div id = "PauseButton"> <button type="button" class="btn btn-danger" onclick = "pauseVideo()">Pause</button></div>
 	  	<div id = "Restart"> <button type="button" class="btn btn-primary" onclick = "restartVideo()">Restart</button></div>
 	  	<div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
-
+	  	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div>
+	  	<div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
 	  	<div id = "seconds"></div><div id = "minutes"></div>
       <div class = "col-md-6">
 	      <h2>Script</h2>
