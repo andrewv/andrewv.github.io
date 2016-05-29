@@ -87,6 +87,7 @@
 		startTimes[captionCounter] = my_video_player.getCurrentPosition()
 		endTimes[captionCounter - 1] = my_video_player.getCurrentPosition() - 0.001
 		console.log(startTimes[captionCounter]);
+		console.log(my_video_player.getCurrentPosition().format("HH:MM:SS,l"));
 	}
 
 	
