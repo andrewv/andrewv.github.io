@@ -73,6 +73,20 @@
 		my_video_player.play();
 	}
 	
+	function wordwrap( str, width, brk, cut ) {
+ 
+    brk = brk || 'n';
+    width = width || 75;
+    cut = cut || false;
+ 
+    if (!str) { return str; }
+ 
+    var regex = '.{1,' +width+ '}(\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\S+?(\s|$)');
+ 
+    return str.match( RegExp(regex, 'g') ).join( brk );
+ 
+}
+	
 	function processScript() {
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
@@ -81,52 +95,44 @@
 		var sentences = rawScript.split('.');
 		console.log(sentences);
 		
+		var idealCaptionLineLength = 74
 		//Process each sentence
 		for(i = 0; i < sentences.length; i++)
 			{
-			//Divide sentence by 40 characters and round up. This is the max length of a caption.
-				var numberOfCaptionLines = Math.ceil(sentences[i].length / 40)
 			
-			//Find the ideal length of each caption line
-			if (numberOfCaptionLines !== 1) {
-				var idealCaptionLineLength = Math.round(sentences[i].length / numberOfCaptionLines);
-			} else {
-				idealCaptionLineLength = 40
-			}
 				
 
 			
 			//Create an array of words in each sentence
-
+			
+					
+				
 				var words = sentences[i].split(' ');
-				console.log(words)
+				sentences[i] = new Array([], words)
+				
+				
 				
 				//create caption lines
 				var captionLine = ""
 					for(j = 0; j < words.length; j++) {
-						if (captionLine.length  + words[j].length < idealCaptionLineLength) {
+						if (j === words.length - 1) {
 							captionLine = captionLine + " " + words[j]
-						} else {
-							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
-							captionLine = "<br>" + words[j]
-							
-						}
-						if (j === (words.length - 1)) {
-							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
-								captionLine = ""
-						}
-						}
-							/*
-							if (j === (words.length - 1)) {
-								$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
-								captionLine = ""
-							}
-						} else {		
-							$("#separatedscript").append("<div class='panel panel-default'><div class='panel-body'>" + captionLine + "</div></div>");
+							sentences[i][0].push(captionLine)
 							captionLine = ""
-							*/
+							console.log(sentences[i][0])
+						} else {
+							if (captionLine.length  + words[j].length < idealCaptionLineLength) {
+								captionLine = captionLine + " " + words[j]
+							} else {
+								sentences[i][0].push(captionLine)
+								captionLine = words[j]
+								console.log(sentences[i][0])
+								
+							} 
+						}
 						
-					
+						
+						}				
 					
 				
   			}
