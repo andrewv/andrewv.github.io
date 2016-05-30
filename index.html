@@ -122,7 +122,7 @@
 		var fileName = "test.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
-	    link.href = 'data:,' + fileContents;
+	    link.href = 'data:text;charset=utf-8;base64,' + fileContents;
 	    link.click();
     
 	}
