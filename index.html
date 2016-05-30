@@ -52,6 +52,7 @@
       // Get Embedded Video Player API Instance
       
       FB.Event.subscribe('xfbml.ready', function(msg) {
+	      alert("ready");
         if (msg.type === 'video') {
           my_video_player = msg.instance;
         }
