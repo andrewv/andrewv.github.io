@@ -107,13 +107,14 @@
 	}
 	
 	function makeCaptionsFile() {
+		var captionsAsText = ""
 		for (i=0; i < captions.length; i++) {
-			document.getElementById('captionfile-textarea').value += (i + 1).toString() + "\n";
-			document.getElementById('captionfile-textarea').value += startTimes[i] + " --> " + endTimes[i] + "\n"
-			document.getElementById('captionfile-textarea').value += captions[i] + "\n\n"	
+			captionsAsText += (i + 1).toString() + "\n";
+			captionsAsText += startTimes[i] + " --> " + endTimes[i] + "\n"
+			captionsAsText += captions[i] + "\n\n"	
 		}
 		
-		var fileContents = $('textarea#captionfile-textarea').val().replace(/\n/g, "\r\n");
+		var fileContents = captionsAsText.replace(/\n/g, "\r\n");
 		var fileName = "test.en_US.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
@@ -247,20 +248,28 @@ $(document).keypress(function(e){
       <div class = "row">
 	      <div class = "col-md-6">
 		      <div class = "row">
-			        <div class = "col-md-8">
+			        <div class = "col-md-10">
 				    	<div class="form-horizontal">
 				  			<div class="form-group">
 				        		<input type="text" class="form-control" id="facebookVideoLink" placeholder="Paste Link for Facebook Video">
 			        		</div>
 			    		</div>
 			    	</div>
-				    <div class = "col-md-4">
-					    <div id = "GetFacebookVideo"> <button type="button" class="btn btn-primary" onclick = "getFacebookVideo()">Go</button></div>
+				    <div class = "col-md-2">
+					    <div id = "facebookVideoLink"> <button type="button" class="btn btn-primary" onclick = "getFacebookVideo()">Go</button></div>
 				    </div>
 		      </div>
 		      <div class = "row">
 			      <div class = "col-md-12">
-				      <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+				      <div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Source Video</h3>
+						  </div>
+						  <div class="panel-body">
+						    <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+						  </div>
+					</div>
+				      
 			      </div>
 		      </div>
 		      <div class = "row">
@@ -271,6 +280,18 @@ $(document).keypress(function(e){
 				    	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div> 
 			      </div>  
 		      </div>
+		      <div class = "row">
+			      <div class = "col-md-12">
+				        <div class="panel panel-default" id = "panelCaptions">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Captions</h3>
+						  </div>
+						  <div class="panel-body">
+						    <div id = "separatedscript"></div> 
+						  </div>
+						</div>
+			      </div>
+		      </div>
 	      </div>
 	      <div class = "col-md-6">
 		      <div class = "row">
@@ -280,7 +301,16 @@ $(document).keypress(function(e){
 		      </div>
 		      <div class = "row">
 			        <div class = "col-md-12">
-						<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
+				        <div class="panel panel-default" id = "panelScript">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Script</h3>
+						  </div>
+						  <div class="panel-body" id = "panel-bodyScript">
+						    <textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
+						    
+						  </div>
+					</div>
+						
 			    	</div>
 		      </div>
 	      </div>	      
@@ -324,7 +354,7 @@ $(document).keypress(function(e){
 		  	<div class="form-horizontal">
 		  		<div class="form-group">
 		        	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
-	            	<textarea id = "captionfile-textarea" class="form-control" rows="40" placeholder="" required></textarea>
+	            	
 	        	</div>
 	    	</div>
 		</div>
