@@ -208,7 +208,8 @@ $(document).keypress(function(e){
 								newCaption = sentences[i][0][k]
 							}
 							captions.push(newCaption)
-							$('#separatedscript').append("<div class='panel panel-default text-center captions'><div class='panel-heading'><h3 class = 'panel-title'>" + newCaption + "</h3></div></div>");
+							var captionForHTML = newCaption.replace("\n", "<br>");
+							$('#separatedscript').append("<div class='panel panel-default text-center captions'><div class='panel-heading'><h3 class = 'panel-title'>" + captionForHTML + "</h3></div></div>");
 						}
 						
 						
@@ -297,7 +298,7 @@ $(document).keypress(function(e){
 						  </div>
 						  <div class="panel-body">
 						    <div id = "separatedscript"></div>
-						    <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div> 
+						    <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary col-center-block" onclick = "makeCaptionsFile()">Make SRT File</button></div> 
 						  </div>
 						</div>
 			      </div>
