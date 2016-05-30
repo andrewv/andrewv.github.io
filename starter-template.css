@@ -18,14 +18,16 @@ body {
 	display:none;
 }
 
-#separatedscript {
-	display:none;
-}
+
 
 #StartCaptions {
 	display:none;
 }
 
 #NextCaption {
+	display:none;
+}
+
+#panelCaptions {
 	display:none;
 }

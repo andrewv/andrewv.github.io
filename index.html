@@ -94,7 +94,7 @@
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes);
 		console.log("END" + endTimes);
-		$('#separatedscript').children().eq(captionCounter - 1).hide();
+		$('#separatedscript').children().eq(captionCounter - 1).slideUp();
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-warning');
@@ -141,10 +141,11 @@ $(document).keypress(function(e){
 	function processScript() {
 		
 		FB.XFBML.parse();
-		$( "#separatedscript" ).show();
+
 		$( "#StartCaptions" ).show();
 		$( "#NextCaption" ).show();
 		$("#panelHelp").hide();
+		$("#panelCaptions").show();
 		$( "#separatedscript" ).empty();
 		
 		rawScript = $('textarea#script-textarea').val();
