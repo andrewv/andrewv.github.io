@@ -81,6 +81,7 @@
 		var captionCounter = 1
 		my_video_player.play();
 		startTimes[0] = 0
+
 	}
 	
 	function nextCaption() {
@@ -105,6 +106,7 @@
 		startTimes[captionCounter] = t
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes[captionCounter]);
+		captionCounter = captionCounter + 1
 		
 
 	}
