@@ -10,8 +10,3 @@ body {
 	padding-left: 15px;
 }
 
-.panel-body {
-	height:300px;
-  overflow-y:scroll;
-  width:100%;
-}

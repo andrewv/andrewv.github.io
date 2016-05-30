@@ -107,8 +107,8 @@
 	}
 	
 	function getFacebookVideo() {
-		let facebookVideoLink = $('#facebookVideoLink').val();
-		$('#facebookVideo').append("<div class="fb-video" data-href='" + facebookVideoLink + "' data-width='500' data-show-text='false'></div>")
+		var fbLink = documents.getElementById('facebookVideoLink').value();
+		$('#facebookVideo').append("<div class='fb-video' data-href='" + fbLink + "' data-width='500' data-show-text='false'></div>");
 	}
 	
 	function makeCaptionsFile() {
@@ -261,7 +261,7 @@ $(document).keypress(function(e){
 			    		</div>
 			    	</div>
 				    <div class = "col-md-2">
-					    <div id = "facebookVideoLink"> <button type="button" class="btn btn-primary" onclick = "getFacebookVideo()">Go</button></div>
+					    <div id = "fbLinkGoButton"> <button type="button" class="btn btn-primary" onclick = "getFacebookVideo()">Go</button></div>
 				    </div>
 		      </div>
 		      <div class = "row">
