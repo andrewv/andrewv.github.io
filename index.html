@@ -141,7 +141,12 @@ $(document).keypress(function(e){
 	function processScript() {
 		
 		FB.XFBML.parse();
+		$( "#separatedscript" ).show();
+		$( "#StartCaptions" ).show();
+		$( "#NextCaption" ).show();
+		$("#panelHelp").hide();
 		$( "#separatedscript" ).empty();
+		
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
 		// Use the string.split function to split the string
@@ -294,13 +299,27 @@ $(document).keypress(function(e){
 		      </div>
 		      <div class = "row">
 			      <div class = "col-md-12">
+				      <div class="panel panel-success" id = "panelHelp">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Let's Get Started</h3>
+						  </div>
+						  <div class="panel-body">
+							  
+						    <ol>
+							    <li>Find the link for the public Facebook you would like to caption and copy & paste it into the box above.</li>
+							    <li>Copy & paste your script into the script box. Ensure there are no technical commands or text you would not like captioned.</li>
+							    <li>Click 'Process Script</li>
+							    <li>When you see the Facebook video and are ready to get started, hit 'Start Captioning'</li>
+						    </ol>
+						  </div>
+						</div>
 				        <div class="panel panel-default" id = "panelCaptions">
 						  <div class="panel-heading">
 						    <h3 class="panel-title">Captions</h3>
 						  </div>
 						  <div class="panel-body">
 						    <div id = "separatedscript"></div>
-						    <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary text-center" onclick = "makeCaptionsFile()">Make SRT File</button></div> 
+						    <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-success text-center" onclick = "makeCaptionsFile()">Export Captions File</button></div> 
 						  </div>
 						</div>
 			      </div>
