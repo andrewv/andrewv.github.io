@@ -80,7 +80,7 @@
 	function startCaptioning() {
 		captionCounter = 1
 		my_video_player.play();
-		startTimes[0] = 00:00:00,000
+		startTimes[0] = "00:00:00,000"
 		document.getElementById('separatedscript').index(0).removeClass('panel-default');
 		document.getElementById('separatedscript').index(0).addClass('panel-success');
 		document.getElementById('separatedscript').index(1).removeClass('panel-default');
@@ -131,7 +131,7 @@
 		}
 		
 		var fileContents = $('textarea#captionfile-textarea').val().replace(/\n/g, "\r\n");
-		var fileName = "test.srt"
+		var fileName = "test.en_US.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
 	    link.href = 'data:text/plain;charset=utf-8;base64,' + btoa(fileContents);
