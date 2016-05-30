@@ -111,13 +111,13 @@
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes);
 		console.log("END" + endTimes);
-		$('#separatedscript').children().eq(captionCounter - 1).remove();
+		$('#separatedscript').children().eq(captionCounter - 1).hide();
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-warning');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter + 1).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-warning');
-				captionCounter = captionCounter + 1
+		captionCounter = captionCounter + 1
 
 		
 
