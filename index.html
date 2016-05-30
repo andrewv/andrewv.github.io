@@ -81,10 +81,10 @@
 		captionCounter = 1
 		my_video_player.play();
 		startTimes[0] = "00:00:00,000"
-		document.getElementById('separatedscript').index(0).removeClass('panel-default');
-		document.getElementById('separatedscript').index(0).addClass('panel-success');
-		document.getElementById('separatedscript').index(1).removeClass('panel-default');
-		document.getElementById('separatedscript').index(1).addClass('panel-warning');
+		document.getElementById('separatedscript').childNodes(0).removeClass('panel-default');
+		document.getElementById('separatedscript').childNodes(0).addClass('panel-success');
+		document.getElementById('separatedscript').childNodes(1).removeClass('panel-default');
+		document.getElementById('separatedscript').childNodes(1).addClass('panel-warning');
 
 	}
 	
@@ -114,10 +114,10 @@
 		captionCounter = captionCounter + 1
 		var list = document.getElementById("separatedscript"); 
 		list.removeChild(list.childNodes(captionCounter - 1))
-		document.getElementById('separatedscript').index(captionCounter).removeClass('panel-default');
-		document.getElementById('separatedscript').index(captionCounter).addClass('panel-success');
-		document.getElementById('separatedscript').index(captionCounter + 1).removeClass('panel-default');
-		document.getElementById('separatedscript').index(captionCounter + 1).addClass('panel-warning');
+		document.getElementById('separatedscript').childNodes(captionCounter).removeClass('panel-default');
+		document.getElementById('separatedscript').childNodes(captionCounter).addClass('panel-success');
+		document.getElementById('separatedscript').childNodes(captionCounter + 1).removeClass('panel-default');
+		document.getElementById('separatedscript').childNodes(captionCounter + 1).addClass('panel-warning');
 		
 		
 
