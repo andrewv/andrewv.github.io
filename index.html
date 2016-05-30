@@ -94,7 +94,8 @@
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes);
 		console.log("END" + endTimes);
-		$('#separatedscript').children().eq(captionCounter - 1).hide();
+		//$('#separatedscript').children().eq(captionCounter - 1).hide();
+		$('#separatedscript').children().eq(captionCounter).scrollToView(true);
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-warning');
