@@ -82,9 +82,9 @@
 		my_video_player.play();
 		startTimes[0] = "00:00:00,000"
 		$('#separatedscript').children().eq(0).removeClass('panel-default');
-		$('#separatedscript').children().eq(0).addClass('panel-success');
+		$('#separatedscript').children().eq(0).addClass('panel-warning');
 		$('#separatedscript').children().eq(1).removeClass('panel-default');
-		$('#separatedscript').children().eq(1).addClass('panel-warning');
+		$('#separatedscript').children().eq(1).addClass('panel-success');
 
 	}
 	
@@ -113,10 +113,10 @@
 		console.log("END" + endTimes);
 		$('#separatedscript').children().eq(captionCounter - 1).hide();
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
-		$('#separatedscript').children().eq(captionCounter).removeClass('panel-warning');
+		$('#separatedscript').children().eq(captionCounter).removeClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter + 1).removeClass('panel-default');
-		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-warning');
+		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-success');
 		captionCounter = captionCounter + 1
 
 		
@@ -208,7 +208,7 @@
 								newCaption = sentences[i][0][k]
 							}
 							captions.push(newCaption)
-							$('#separatedscript').append("<div class='panel panel-default text-center captions'><div class='panel-heading'>" + newCaption + "</div></div>");
+							$('#separatedscript').append("<div class='panel panel-default text-center captions'><div class='panel-heading'><h3 class = 'panel-title'>" + newCaption + "</h3></div></div>");
 						}
 						
 						
