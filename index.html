@@ -139,12 +139,12 @@
     
 	}
 	
-	document.body.onkeyup = function(e){
+$(document).keypress(function(e){
 		if(e.charCode == 110){
   	event.preventDefault();
     nextCaption()
   }
-	}
+	})
 
 	
 	function processScript() {
