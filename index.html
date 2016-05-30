@@ -81,10 +81,10 @@
 		captionCounter = 1
 		my_video_player.play();
 		startTimes[0] = "00:00:00,000"
-		document.getElementById('separatedscript').children().eq(0).removeClass('panel-default');
-		document.getElementById('separatedscript').children().eq(0).addClass('panel-success');
-		document.getElementById('separatedscript').children().eq(1).removeClass('panel-default');
-		document.getElementById('separatedscript').children().eq(1).addClass('panel-warning');
+		$('#separatedscript').children().eq(0).removeClass('panel-default');
+		$('#separatedscript').children().eq(0).addClass('panel-success');
+		$('#separatedscript').children().eq(1).removeClass('panel-default');
+		$('#separatedscript').children().eq(1).addClass('panel-warning');
 
 	}
 	
@@ -112,12 +112,11 @@
 		console.log(startTimes);
 		console.log("END" + endTimes);
 		captionCounter = captionCounter + 1
-		var list = document.getElementById("separatedscript"); 
-		list.removeChild(list.children().eq(captionCounter - 1))
-		document.getElementById('separatedscript').children().eq(captionCounter).removeClass('panel-default');
-		document.getElementById('separatedscript').children().eq(captionCounter).addClass('panel-success');
-		document.getElementById('separatedscript').children().eq(captionCounter + 1).removeClass('panel-default');
-		document.getElementById('separatedscript').children().eq(captionCounter + 1).addClass('panel-warning');
+		$('#separatedscript').removeChild(list.children().eq(captionCounter - 1))
+		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
+		$('#separatedscript').children().eq(captionCounter).addClass('panel-success');
+		$('#separatedscript').children().eq(captionCounter + 1).removeClass('panel-default');
+		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-warning');
 		
 		
 
