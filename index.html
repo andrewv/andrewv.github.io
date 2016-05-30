@@ -118,11 +118,11 @@
 			document.getElementById('captionfile-textarea').value += captions[i] + "\n\n"	
 		}
 		
-		var fileContents = $('textarea#captionfile-textarea').val();
+		var fileContents = $('textarea#captionfile-textarea').val().replace(/\n/g, "\r\n");
 		var fileName = "test.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
-	    link.href = 'data:text/plain;charset=utf-8;base64,' + fileContents;
+	    link.href = 'data:text/plain;charset=utf-8;base64,' + btoa(fileContents);
 	    link.click();
     
 	}
