@@ -72,7 +72,7 @@
 	}
 	
 	function nextCaption() {
-		var currentTime = my_video_player.getCurrentPosition();
+		var currentTime = my_video_player.getCurrentPosition() - 0.200;
 		//var currentTimeInSeconds = Math.floor(currentTime);
 		// multiply by 1000 because Date() requires miliseconds
 		var date = new Date(currentTime * 1000);
@@ -109,6 +109,7 @@
 	function getFacebookVideo() {
 		var fbLink = $('#facebookVideoLink').val();
 		$('#facebookVideo').innerHTML = "<div class='fb-video' data-href='" + fbLink + "' data-width='500' data-show-text='false'></div>"
+		FB.XFBML.parse();
 	}
 	
 	function makeCaptionsFile() {
