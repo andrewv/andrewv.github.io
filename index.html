@@ -62,8 +62,6 @@
 
 	
 	function startCaptioning() {
-
-		FB.XFBML.parse();
 		captionCounter = 1
 		my_video_player.play();
 		startTimes[0] = "00:00:00,000"
@@ -143,6 +141,7 @@ $(document).keypress(function(e){
 	
 	function processScript() {
 		
+		FB.XFBML.parse();
 		$( "#separatedscript" ).empty();
 		rawScript = $('textarea#script-textarea').val();
 		console.log(rawScript);
@@ -217,6 +216,7 @@ $(document).keypress(function(e){
 				
   			}
   			console.log(captions)
+  			$('#MakeCaptionsFile').show();
 	}
     
     
@@ -283,10 +283,10 @@ $(document).keypress(function(e){
 		      </div>
 		      <div class = "row">
 			      <div class = "col-md-4">
-				    	<div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
+				    	<div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Begin Captioning</button></div>
 			      </div>  
 				  <div class = "col-md-4 col-md-offset-4">
-				    	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div> 
+				    	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">Next Caption</button></div> 
 			      </div>  
 		      </div>
 		      <div class = "row">
@@ -296,7 +296,8 @@ $(document).keypress(function(e){
 						    <h3 class="panel-title">Captions</h3>
 						  </div>
 						  <div class="panel-body">
-						    <div id = "separatedscript"></div> 
+						    <div id = "separatedscript"></div>
+						    <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div> 
 						  </div>
 						</div>
 			      </div>
@@ -325,55 +326,6 @@ $(document).keypress(function(e){
 	      </div>	      
       </div>
     </div>
-	    
-      </div>
-	  <div class = "row">
-      	<div class="col-md-6">
-		  <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
-      	</div>
-      	<div class = "row">
-	    <div class = "col-md-2">
-		    <div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
-	    </div>
-	    <div class = "col-md-2 col-md-offset-2">
-		   <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div>
-	    </div>
-    </div>
-    <div class = "row">
-	    <div class = "col-md-2">
-		    <div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
-	    </div>
-	    <div class = "col-md-2 col-md-offset-2">
-		   
-	    </div>
-    </div>
-    <div class = "row">
-	    <div class = "col-md-6"> 
-		    
-		    <h2>Captions</h2>
-			  <div id = "separatedscript"></div> 
-		   
-		</div>
-		<div class = "col-md-4">
-			<h2>Script</h2>
-		</div>
-		<div class = "col-md-2">
-			<div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
-		</div>
-		  	<div class="form-horizontal">
-		  		<div class="form-group">
-		        	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
-	            	
-	        	</div>
-	    	</div>
-		</div>
-		  
-      </div>
-      
-	      
-      
-	</div>
-    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript

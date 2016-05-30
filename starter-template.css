@@ -10,3 +10,10 @@ body {
 	padding-left: 15px;
 }
 
+.btn-primary {
+	padding-bottom:15px;
+}
+
+#MakeCaptionsFile {
+	display:none;
+}
