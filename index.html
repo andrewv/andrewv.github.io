@@ -35,7 +35,7 @@
 	    <div id="fb-root"></div>
 
   <script>
-	  $(document).ready(function() {
+
 	  var my_video_player;
 	  var rawScript;
 	  var captions = [];
@@ -58,25 +58,7 @@
       });
       
     };
-    
-    function playVideo() {
-	 	my_video_player.play();
-	 	var sec = 0;
-	 		function pad ( val ) { return val > 9 ? val : "0" + val; }
-	 		setInterval( function(){
-	 		$("#seconds").html(pad(++sec));
-	 		$("#minutes").html(pad(parseInt(sec/60,10)));
-	}, 1000); 
-	}
-	
-	function pauseVideo() {
-	 	my_video_player.pause()
-	}
-	
-	function restartVideo() {
-		my_video_player.seek(0);
-		my_video_player.play();
-	}
+
 	
 	function startCaptioning() {
 		captionCounter = 1
@@ -139,13 +121,14 @@
 	    link.click();
     
 	}
-	
+/*	
 $(document).keypress(function(e){
 		if(e.charCode == 110){
   	event.preventDefault();
     nextCaption()
   }
 	})
+	*/
 
 	
 	function processScript() {
@@ -235,7 +218,7 @@ $(document).keypress(function(e){
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
      
-   })  
+     
   </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -259,41 +242,52 @@ $(document).keypress(function(e){
     </nav>
 
     <div class="container">
-
       <div class="starter-template">
         <h1>NewsCaption</h1>
         <p class="lead">Caption your news content FAST!</p>
       </div>
       <div class = "row">
-      <div class="col-md-6">
+      	<div class="col-md-6">
 	      <h2>Source Video</h2>
-	        <!-- Load Facebook SDK for JavaScript -->
-
-  <!-- Your embedded video player code -->
-  	<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
-  	<h2>Captions</h2>
-  	<div id = "separatedscript">
-  	</div>
+		  <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+      	</div>
+      	<div class = "row">
+	    <div class = "col-md-2">
+		    <div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
+	    </div>
+	    <div class = "col-md-2 col-md-offset-2">
+		   <div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div>
+	    </div>
+    </div>
+    <div class = "row">
+	    <div class = "col-md-2">
+		    <div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
+	    </div>
+	    <div class = "col-md-2 col-md-offset-2">
+		   <div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div> 
+	    </div>
+    </div>
+    <div class = "row">
+	    <div class = "col-md-6"> 
+		    
+		    <h2>Captions</h2>
+			  <div id = "separatedscript"></div> 
+		   
+		</div>
+		<div class = "col-md-6">
+			<h2>Script</h2>
+		  	<div class="form-horizontal">
+		  		<div class="form-group">
+		        	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
+	            	<textarea id = "captionfile-textarea" class="form-control" rows="40" placeholder="" required></textarea>
+	        	</div>
+	    	</div>
+		</div>
+		  
       </div>
-
-      	<div id = "PlayButton"> <button type="button" class="btn btn-success" onclick = "playVideo()">Play</button></div>
-	  	<div id = "PauseButton"> <button type="button" class="btn btn-danger" onclick = "pauseVideo()">Pause</button></div>
-	  	<div id = "Restart"> <button type="button" class="btn btn-primary" onclick = "restartVideo()">Restart</button></div>
-	  	<div id = "Process"> <button type="button" class="btn btn-primary" onclick = "processScript()">Process Script</button></div>
-	  	<div id = "NextCaption"> <button type="button" class="btn btn-primary" onclick = "nextCaption()">NextCaption</button></div>
-	  	<div id = "StartCaptions"> <button type="button" class="btn btn-primary" onclick = "startCaptioning()">Start Captions</button></div>
-	  	<div id = "MakeCaptionsFile"> <button type="button" class="btn btn-primary" onclick = "makeCaptionsFile()">Make SRT File</button></div>
-	  	<div id = "seconds"></div><div id = "minutes"></div>
-      <div class = "col-md-6">
-	      <h2>Script</h2>
-	  	<div class="form-horizontal">
-	  		<div class="form-group">
-            	<textarea id = "script-textarea" class="form-control" rows="40" placeholder="Copy and paste your news script here" required></textarea>
-            	<textarea id = "captionfile-textarea" class="form-control" rows="40" placeholder="" required></textarea>
-        	</div>
-    	</div>
-      </div>
-      </div>
+      
+	      
+      
 	</div>
     </div><!-- /.container -->
 
