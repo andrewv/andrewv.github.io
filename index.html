@@ -110,7 +110,13 @@
 	}
 	
 	function makeCaptionsFile() {
-		var fileContents = $('textarea#script-textarea').val();
+		for (i=0; i < captions.length; i++) {
+			$('textarea#captionfile-textarea').value += (i + 1).toString() + "\n";
+			$('textarea#captionfile-textarea').value += startTimes[i] + " --> " + endTimes[i]
+			$('textarea#captionfile-textarea').value += captions[i] + "\n\n"	
+		}
+		
+		var fileContents = $('textarea#captionfile-textarea').val();
 		var fileName = "test.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
@@ -180,7 +186,7 @@
 									newCaption = newCaption + " " + wordsInCaption[l]
 									newCaptionLine = newCaptionLine + " " + wordsInCaption[l]
 								} else {
-									newCaption = newCaption + "<br>" + wordsInCaption[l]
+									newCaption = newCaption + "\n" + wordsInCaption[l]
 									newCaptionLine = ""
 								}
 							}
