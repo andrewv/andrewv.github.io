@@ -117,12 +117,15 @@
 			document.getElementById('captionfile-textarea').value += startTimes[i] + " --> " + endTimes[i]
 			document.getElementById('captionfile-textarea').value += captions[i] + "\n\n"	
 		}
-		
+			
+			var data = new Blob([text], {type: 'text/plain'});
 		var fileContents = $('textarea#captionfile-textarea').val();
+		fileContents = fileContents.replace(/\n/g, "\r\n");
+		var downloadFile = new Blob([fileContents], {type: 'text/plain'});
 		var fileName = "test.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
-	    link.href = 'data:,' + fileContents;
+	    link.href = 'data:,' + downloadFile;
 	    link.click();
     
 	}
