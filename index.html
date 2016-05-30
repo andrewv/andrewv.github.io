@@ -94,13 +94,18 @@
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes);
 		console.log("END" + endTimes);
-		$('#separatedscript').children().eq(captionCounter - 1).slideUp();
-		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
+		$('#separatedscript').children().eq(captionCounter - 1).slideUp(200);
+		var delay=200; //1 second
+
+		setTimeout(function() {
+			$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-warning');
 		$('#separatedscript').children().eq(captionCounter + 1).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-success');
 		captionCounter = captionCounter + 1
+		}, delay);
+		
 
 		
 
