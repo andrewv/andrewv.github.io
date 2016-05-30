@@ -70,7 +70,7 @@
 		$('#separatedscript').children().eq(1).addClass('panel-success');
 		var progressBar = (1 / captions.length) * 100
 		var progressBarAsString = progressBar.toString + "%"
-		$(".bar").css("width", progressBarAsString);
+		$(".progress-bar").css("width", progressBarAsString);
 
 	}
 	
@@ -86,7 +86,7 @@
 		$('#separatedscript').children().eq(0).addClass('panel-warning');
 		$('#separatedscript').children().eq(1).removeClass('panel-default');
 		$('#separatedscript').children().eq(1).addClass('panel-success');
-		$(".bar").css("width", "0%");
+		$(".progress-bar").css("width", "0%");
 	}
 	
 	function nextCaption() {
@@ -123,7 +123,7 @@
 		$('#separatedscript').children().eq(captionCounter + 1).addClass('panel-success');
 		var progressBar = (captionCounter / captions.length) * 100
 		var progressBarAsString = progressBar.toString + "%"
-		$(".bar").css("width", progressBarAsString);
+		$(".progress-bar").css("width", progressBarAsString);
 		captionCounter = captionCounter + 1
 		}, delay);
 		
