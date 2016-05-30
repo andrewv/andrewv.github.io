@@ -81,6 +81,10 @@
 		captionCounter = 1
 		my_video_player.play();
 		startTimes[0] = 00:00:00,000
+		document.getElementById('separatedscript').index(0).removeClass('panel-default');
+		document.getElementById('separatedscript').index(0).addClass('panel-success');
+		document.getElementById('separatedscript').index(1).removeClass('panel-default');
+		document.getElementById('separatedscript').index(1).addClass('panel-warning');
 
 	}
 	
@@ -108,6 +112,12 @@
 		console.log(startTimes);
 		console.log("END" + endTimes);
 		captionCounter = captionCounter + 1
+		var list = document.getElementById("separatedscript"); 
+		list.removeChild(list.childNodes(captionCounter - 1))
+		document.getElementById('separatedscript').index(captionCounter).removeClass('panel-default');
+		document.getElementById('separatedscript').index(captionCounter).addClass('panel-success');
+		document.getElementById('separatedscript').index(captionCounter + 1).removeClass('panel-default');
+		document.getElementById('separatedscript').index(captionCounter + 1).addClass('panel-warning');
 		
 		
 
@@ -198,7 +208,7 @@
 								newCaption = sentences[i][0][k]
 							}
 							captions.push(newCaption)
-							$('#separatedscript').append("<div class='panel panel-default text-center'><div class='panel-body'>" + newCaption + "</div></div>");
+							$('#separatedscript').append("<div class='panel panel-default text-center captions'><div class='panel-body'>" + newCaption + "</div></div>");
 						}
 						
 						
