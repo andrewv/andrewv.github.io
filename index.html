@@ -226,6 +226,13 @@
        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=601078690059003";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+     
+     $(document).keypress(function(e){
+  if(e.charCode == 32){
+  	event.preventDefault();
+    nextCaption()
+  }
+})
   </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
