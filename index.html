@@ -94,8 +94,7 @@
 		endTimes[captionCounter - 1] = t
 		console.log(startTimes);
 		console.log("END" + endTimes);
-		//$('#separatedscript').children().eq(captionCounter - 1).hide();
-		$('#separatedscript').children().eq(captionCounter).scrollToView(true);
+		$('#separatedscript').children().eq(captionCounter - 1).hide();
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-default');
 		$('#separatedscript').children().eq(captionCounter).removeClass('panel-success');
 		$('#separatedscript').children().eq(captionCounter).addClass('panel-warning');
@@ -105,6 +104,11 @@
 
 		
 
+	}
+	
+	function getFacebookVideo() {
+		let facebookVideoLink = $('#facebookVideoLink').val();
+		$('#facebookVideo').append("<div class="fb-video" data-href='" + facebookVideoLink + "' data-width='500' data-show-text='false'></div>")
 	}
 	
 	function makeCaptionsFile() {
@@ -262,12 +266,12 @@ $(document).keypress(function(e){
 		      </div>
 		      <div class = "row">
 			      <div class = "col-md-12">
-				      <div class="panel panel-default">
+				      <div class="panel panel-default" id = "panelVideo">
 						  <div class="panel-heading">
 						    <h3 class="panel-title">Source Video</h3>
 						  </div>
-						  <div class="panel-body">
-						    <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/1073926082677698/" data-width="500" data-show-text="false"></div>
+						  <div class="panel-body" id = "facebookVideo">
+						    
 						  </div>
 					</div>
 				      
