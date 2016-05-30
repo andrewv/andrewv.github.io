@@ -111,9 +111,9 @@
 	
 	function makeCaptionsFile() {
 		for (i=0; i < captions.length; i++) {
-			$('textarea#captionfile-textarea').value += (i + 1).toString() + "\n";
-			$('textarea#captionfile-textarea').value += startTimes[i] + " --> " + endTimes[i]
-			$('textarea#captionfile-textarea').value += captions[i] + "\n\n"	
+			document.getElementById('captionfile-textarea').value += (i + 1).toString() + "\n";
+			document.getElementById('captionfile-textarea').value += startTimes[i] + " --> " + endTimes[i]
+			document.getElementById('captionfile-textarea').value += captions[i] + "\n\n"	
 		}
 		
 		var fileContents = $('textarea#captionfile-textarea').val();
