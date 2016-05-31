@@ -68,7 +68,7 @@
 		$('#separatedscript').children().eq(0).addClass('panel-warning');
 		$('#separatedscript').children().eq(1).removeClass('panel-default');
 		$('#separatedscript').children().eq(1).addClass('panel-success');
-		var progressBar = (1 / captions.length) * 100
+		var progressBar = Math.ceil((1 / captions.length) * 100);
 		var progressBarAsString = progressBar.toString + "%"
 		$(".progress-bar").css("width", progressBarAsString);
 
@@ -165,8 +165,7 @@ $(document).keypress(function(e){
 	*/
 
 	
-	function processScript() {
-		
+	function processScript() {		
 		FB.XFBML.parse();
 
 		$( "#StartCaptions" ).show();
