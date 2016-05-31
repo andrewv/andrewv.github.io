@@ -110,8 +110,8 @@
 		$(".progress-bar").css("width", progressBarAsString);
 		captionCounter = captionCounter + 1
 		if (captionCounter == captions.length - 2) {
-			$('#NextCaption').hide();
-			$('#EndCaption').show();
+			$('#NextCaption').style.display = "none";
+			$('#EndCaption').style.display = "block";
 		}
 		}, delay);
 
