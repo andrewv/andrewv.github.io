@@ -71,21 +71,7 @@
 		$('#StartCaptions').hide();
 		$('#RestartCaptions').show();
 	}
-	
-	function restartCaptioning() {
-		captions = [];
-		my_video_player.seek(0);
-		my_video_player.play();
-		startTimes = [];
-		endTimes = [];s
-		captionCounter = 1
-		startTimes[0] = "00:00:00,000"
-		$('#separatedscript').children().eq(0).removeClass('panel-default');
-		$('#separatedscript').children().eq(0).addClass('panel-warning');
-		$('#separatedscript').children().eq(1).removeClass('panel-default');
-		$('#separatedscript').children().eq(1).addClass('panel-success');
-		$(".progress-bar").css("width", "0%");
-	}
+
 	
 	function nextCaption() {
 		var currentTime = my_video_player.getCurrentPosition() - 0.200;
@@ -317,7 +303,6 @@ $(document).keypress(function(e){
 		      <div class = "row">
 			      <div class = "col-md-4">
 				    	<div id = "StartCaptions"> <button type="button" class="btn btn-primary text-center" onclick = "startCaptioning()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>  Start Captioning</button></div>
-				    	<div id = "RestartCaptions"> <button type="button" class="btn btn-primary text-center" onclick = "restartCaptioning()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>  Restart Captioning</button></div>
 			      </div>  
 				  <div class = "col-md-4 col-md-offset-4">
 				    	<div id = "NextCaption"> <button type="button" class="btn btn-primary text-center" onclick = "nextCaption()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>  Next Caption</button></div> 
