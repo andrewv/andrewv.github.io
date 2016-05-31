@@ -109,6 +109,10 @@
 		var progressBarAsString = progressBar + "%"
 		$(".progress-bar").css("width", progressBarAsString);
 		captionCounter = captionCounter + 1
+		if (captionCounter == captions.length - 1) {
+			$('#NextCaption').display = hide();
+			$('#EndCaption').display = show();
+		}
 		}, delay);
 
 	}
@@ -127,8 +131,7 @@
 
 	
 	function endCaption() {
-		$('#NextCaption').display = hide();
-		$('#EndCaption').display = show();
+
 		var currentTime = my_video_player.getCurrentPosition() - 0.200;
 		//var currentTimeInSeconds = Math.floor(currentTime);
 		// multiply by 1000 because Date() requires miliseconds
