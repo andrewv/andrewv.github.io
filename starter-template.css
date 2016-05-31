@@ -35,3 +35,7 @@ body {
 .navbar {
 	background-color:black;
 }
+
+#EndCaption {
+	display:none;
+}
