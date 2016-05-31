@@ -110,8 +110,8 @@
 		$(".progress-bar").css("width", progressBarAsString);
 		captionCounter = captionCounter + 1
 		if (captionCounter == captions.length - 2) {
-			$('#NextCaption').style.display = "none";
-			$('#EndCaption').style.display = "block";
+			$('#NextCaption').display = "none";
+			$('#EndCaption').display = "block";
 		}
 		}, delay);
 
@@ -343,7 +343,7 @@ $(document).keypress(function(e){
 				    	<div id = "NextCaption"> <button type="button" class="btn btn-primary text-center" onclick = "nextCaption()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>  Next Caption</button></div> 
 			      </div> 
 			      <div class = "col-md-4 col-md-offset-4">
-				    	<div id = "EndCaption"> <button type="button" class="btn btn-danger text-center" onclick = "endCaption()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>  End Captions</button></div> 
+				    	<div id = "EndCaption"> <button type="button" class="btn btn-danger text-center" onclick = "endCaption()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>  End Captions</button></div> 
 			      </div>  
 		      </div>
 
