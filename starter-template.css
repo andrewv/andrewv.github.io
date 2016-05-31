@@ -39,3 +39,19 @@ body {
 #EndCaption {
 	display:none;
 }
+
+.video-container {
+	position:relative;
+}
+
+#facebookVideo {
+	position:relative;
+    z-index:0;
+}
+
+.video-overlay {
+	position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+}
