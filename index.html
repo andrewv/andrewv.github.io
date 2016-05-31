@@ -70,6 +70,7 @@
 		$('#separatedscript').children().eq(1).addClass('panel-success');
 		var progressBar = Math.ceil((1 / captions.length) * 100);
 		var progressBarAsString = progressBar.toString + "%"
+		console.log(progressBarAsString)
 		$(".progress-bar").css("width", progressBarAsString);
 
 	}
@@ -167,6 +168,11 @@ $(document).keypress(function(e){
 	
 	function processScript() {		
 		FB.XFBML.parse();
+		
+		var progressBar = Math.ceil((1 / 28) * 100);
+		var progressBarAsString = progressBar.toString + "%"
+		console.log(progressBarAsString)
+		$(".progress-bar").css("width", progressBarAsString);
 
 		$( "#StartCaptions" ).show();
 		$( "#NextCaption" ).show();
