@@ -165,17 +165,14 @@ $(document).keypress(function(e){
 		if (rawScript.slice(-1) != ".") { //The .match function ignores the last line if there is no full-stop. This checks and fixes this.
 			rawScript += "."
 		}
+		rawScript = rawScript.replace(/(\r\n|\n|\r)/gm,""); //This removes all line breaks and replaces it with a single space.
 		var sentences = rawScript.match( /[^\.!\?]+[\.!\?]+/g );
 		
 
 		var idealCaptionLineLength = 74
 		//Process each sentence
 		for(i = 0; i < sentences.length; i++)
-			{
-			
-				
-
-			
+			{			
 			//Create an array of words in each sentence
 			
 					
