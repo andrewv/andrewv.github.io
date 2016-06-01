@@ -205,8 +205,12 @@ $(document).keypress(function(e){
 		if (rawScript.slice(-1) != ".") { //The .match function ignores the last line if there is no full-stop. This checks and fixes this.
 			rawScript += "."
 		}
+		
+		rawScript.replace(/ *\([^)]*\) */g, ""); //removes text in parentheses
 		rawScript = rawScript.replace(/(\r\n|\n|\r)/gm,""); //This removes all line breaks and replaces it with a single space.
 		var sentences = rawScript.match( /[^\.!\?]+[\.!\?]+/g );
+		
+		
 		
 
 		var idealCaptionLineLength = 74
