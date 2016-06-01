@@ -206,7 +206,7 @@ $(document).keypress(function(e){
 			rawScript += "."
 		}
 		
-		rawScript.replace(/ *\([^)]*\) */g, ""); //removes text in parentheses
+		rawScript = rawScript.replace(/ *\([^)]*\) */g, ""); //removes text in parentheses
 		rawScript = rawScript.replace(/(\r\n|\n|\r)/gm,""); //This removes all line breaks and replaces it with a single space.
 		var sentences = rawScript.match( /[^\.!\?]+[\.!\?]+/g );
 		
