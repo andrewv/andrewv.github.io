@@ -305,7 +305,7 @@ $(document).keypress(function(e){
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Help</a></li>
+            <li><a href="help.html">Help</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -353,16 +353,33 @@ $(document).keypress(function(e){
 			      <div class = "col-md-12">
 				      <div class="panel panel-success" id = "panelHelp">
 						  <div class="panel-heading">
-						    <h3 class="panel-title">Let's Get Started</h3>
+						    <h3 class="panel-title"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Help</h3>
 						  </div>
 						  <div class="panel-body">
-							  
-						    <ol>
-							    <li>Find the link for the public Facebook you would like to caption and copy & paste it into the box above.</li>
-							    <li>Copy & paste your script into the script box. Ensure there are no technical commands or text you would not like captioned.</li>
-							    <li>Click 'Process Script</li>
-							    <li>When you see the Facebook video and are ready to get started, hit 'Start Captioning'</li>
-						    </ol>
+							  <p>You can view this information at anytime by pressing help at the menu above. </p>
+							<h4>Upload Facebook Video</h4> 
+						    <ul>
+							    <li>Open your video on Facebook and right-click the video to copy the URL for the video</li>
+							    <li>Paste the link to the video in the box above and press <kbd>Go</kbd></li>
+						    </ul>
+						    <h4>Process Script</h4> 
+						    <ul>
+							    <li>Copy and paste script for the video in the script page.</li>
+							    <li>Ensure each sentence ends with a full-stop, question mark or exclamation point and remove any other full-stops in sentences. </li>
+							    <li>Press <kbd>Process Script</kbd> and the script will be converted into lines suitable for screen captions</li>
+						    </ul>
+						    <h4>Captioning</h4> 
+						    <ul>
+							    <li>When you are ready, press <kbd>Start Captioning</kbd>. The video will play and the first caption will automatically be inserted.</li>
+							    <li>A yellow caption indicates the current caption and a green caption indicates the next caption. When the first word of the next caption is spoken, press <kbd>Next Caption</kbd></li>
+							    <li>At the end of the video at your last caption, press <kbd>End Captions</kbd></li>
+						    </ul>
+						    <h4>Export Captions File</h4> 
+						    <ul>
+							    <li>Press <kbd>Export Captions File</kbd> to export the captions file for Facebook</li>
+							    <li>On your Facebook page, go to <kbd>Publishing Tools</kbd>, <kbd>Video Library</kbd> and select <kbd>Edit Video</kbd> on your Facebook Video.</li>
+							    <li>Press <kbd>Captions</kbd> and upload your SRT file that was downloaded. Change the default language to en-US. <kbd>Save</kbd></li>
+						    </ul>
 						  </div>
 						</div>
 				        <div class="panel panel-primary" id = "panelCaptions">
