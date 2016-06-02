@@ -161,26 +161,16 @@
 		var fbLink = $('#facebookVideoLink').val();
 		$('#facebookVideo').append("<div class='fb-video' data-href='" + fbLink + "' data-width='500' data-show-text='false'></div>");
 		FB.XFBML.parse();
-				var videoTitle = ""
-		arr = fbLink.split('/');
-		
-		var videoID = arr[arr.length-2];
-		console.log(videoID) 
-		FB.api(
-		videoID,
-			function (response) {
-				if (response && !response.error) {
-					videoTitle = response.title;
-					console.log(videoTitle)
-      			}
-    		}
-		);
+
 	}
 	
 	
 	
 	function makeCaptionsFile() {
-
+		arr = fbLink.split('/');
+		
+		var videoID = arr[arr.length-2];
+		console.log(videoID) 
 		var captionsAsText = ""
 		for (i=0; i < captions.length; i++) {
 			captionsAsText += (i + 1).toString() + "\n";
@@ -189,7 +179,7 @@
 		}
 		
 		var fileContents = captionsAsText.replace(/\n/g, "\r\n");
-		var fileName = "test.en_US.srt"
+		var fileName = videoID + ".en_US.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
 	    link.href = 'data:text/plain;charset=utf-8;base64,' + btoa(fileContents);
