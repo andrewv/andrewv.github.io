@@ -164,6 +164,10 @@
 	}
 	
 	function makeCaptionsFile() {
+		arr = $('#facebookVideoLink').val().split('/');
+		
+		var videoID = arr[arr.length-2];
+		console.log(videoID) 
 		var captionsAsText = ""
 		for (i=0; i < captions.length; i++) {
 			captionsAsText += (i + 1).toString() + "\n";
@@ -172,7 +176,7 @@
 		}
 		
 		var fileContents = captionsAsText.replace(/\n/g, "\r\n");
-		var fileName = "test.en_US.srt"
+		var fileName = videoID + ".en_US.srt"
 		var link = document.createElement('a');
 	    link.download = fileName;
 	    link.href = 'data:text/plain;charset=utf-8;base64,' + btoa(fileContents);
@@ -365,7 +369,7 @@ $(document).keypress(function(e){
 						    <h4>Process Script</h4> 
 						    <ul>
 							    <li>Copy and paste script for the video in the script page.</li>
-							    <li>Ensure each sentence ends with a full-stop, question mark or exclamation point and remove any other full-stops in sentences. Any text in parentheses will be removed in the captions - e.g. (LVO)</li>
+							    <li>Ensure each sentence ends with a full-stop, question mark or exclamation point and remove any other full-stops in sentences. Any text in parentheses will be removed in the captions - e.g. (LVO). Remove any emphasis marks (e.g. 'bold')</li>
 							    <li>Press <kbd>Process Script</kbd> and the script will be converted into lines suitable for screen captions</li>
 						    </ul>
 						    <h4>Captioning</h4> 
